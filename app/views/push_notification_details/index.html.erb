@@ -1,0 +1,31 @@
+<h1>Listing push_notification_details</h1>
+
+<table>
+  <tr>
+    <th>Userid</th>
+    <th>Username</th>
+    <th>Pn device token</th>
+    <th>Notify when comment</th>
+    <th>Notify when friend checkin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @push_notification_details.each do |push_notification_detail| %>
+  <tr>
+    <td><%= push_notification_detail.userid %></td>
+    <td><%= push_notification_detail.username %></td>
+    <td><%= push_notification_detail.pn_device_token %></td>
+    <td><%= push_notification_detail.notify_when_comment %></td>
+    <td><%= push_notification_detail.notify_when_friend_checkin %></td>
+    <td><%= link_to 'Show', push_notification_detail %></td>
+    <td><%= link_to 'Edit', edit_push_notification_detail_path(push_notification_detail) %></td>
+    <td><%= link_to 'Destroy', push_notification_detail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Push notification detail', new_push_notification_detail_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Userid:</b>
+  <%= @push_notification_detail.userid %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @push_notification_detail.username %>
+</p>
+
+<p>
+  <b>Pn device token:</b>
+  <%= @push_notification_detail.pn_device_token %>
+</p>
+
+<p>
+  <b>Notify when comment:</b>
+  <%= @push_notification_detail.notify_when_comment %>
+</p>
+
+<p>
+  <b>Notify when friend checkin:</b>
+  <%= @push_notification_detail.notify_when_friend_checkin %>
+</p>
+
+
+<%= link_to 'Edit', edit_push_notification_detail_path(@push_notification_detail) %> |
+<%= link_to 'Back', push_notification_details_path %>

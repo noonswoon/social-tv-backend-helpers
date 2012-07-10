@@ -1,0 +1,2 @@
+module PushNotificationDetailsHelper
+end

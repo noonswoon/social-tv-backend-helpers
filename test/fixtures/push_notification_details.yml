@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userid: MyString
+  username: MyString
+  pn_device_token: MyString
+  notify_when_comment: 1
+  notify_when_friend_checkin: 1
+
+two:
+  userid: MyString
+  username: MyString
+  pn_device_token: MyString
+  notify_when_comment: 1
+  notify_when_friend_checkin: 1
