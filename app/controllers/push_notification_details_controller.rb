@@ -1,5 +1,6 @@
 class PushNotificationDetailsController < ApplicationController
   skip_before_filter  :verify_authenticity_token 
+  http_basic_authenticate_with :name => "chatterbox", :password => "d1srupt"
 
   # GET /push_notification_details
   # GET /push_notification_details.json
@@ -92,7 +93,7 @@ class PushNotificationDetailsController < ApplicationController
       format.json { render json: @push_notification_detail }
     end
   end
-  
+
   def get_pn_permissions
     user_pn_data = PushNotificationDetail.find_by_userid(params[:id])
     if(user_pn_data != nil)
@@ -152,12 +153,18 @@ class PushNotificationDetailsController < ApplicationController
       @return_message = 'send notification when user gets comments'
       notification = {
         #:schedule_for => 1.hour.from_now,
-        :device_tokens => ['82DFA37CD520A0CBF2EF92A2138550AE88829C08EC01DE2109FE61FC3ADE82D5'],#[user_pn_data.pn_device_token],
-        :aps => {:alert => 'testing badge number auto', :badge => '+1'}
+        :device_tokens => [user_pn_data.pn_device_token],
+        :aps => {:alert => message_to_send, :badge => '+1'}
       }
       Urbanairship.push notification # => true
     elsif (pn_sending_type == 2 && user_pn_data.notify_when_friend_checkin == 1)
       @return_message = 'send notification when user gets comments'
+      notification = {
+        #:schedule_for => 1.hour.from_now,
+        :device_tokens => [user_pn_data.pn_device_token],
+        :aps => {:alert => message_to_send, :badge => '+1'}
+      }
+      Urbanairship.push notification # => true
     else
       @return_message = 'do not have permission to send pn type '+pn_sending_type.to_s
     end
