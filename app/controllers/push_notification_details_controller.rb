@@ -75,15 +75,15 @@ class PushNotificationDetailsController < ApplicationController
   # NO DESTROY FUNCTION
   # DELETE /push_notification_details/1
   # DELETE /push_notification_details/1.json
-  #def destroy
-  #  @push_notification_detail = PushNotificationDetail.find(params[:id])
-  #  @push_notification_detail.destroy
+  def destroy
+    @push_notification_detail = PushNotificationDetail.find(params[:id])
+    @push_notification_detail.destroy
 
-  #  respond_to do |format|
-  #    format.html { redirect_to push_notification_details_url }
-  #    format.json { head :no_content }
-  #  end
-  #end
+    respond_to do |format|
+      format.html { redirect_to push_notification_details_url }
+      format.json { head :no_content }
+    end
+  end
 
   ## ADD-ON
   def show_by_userid
