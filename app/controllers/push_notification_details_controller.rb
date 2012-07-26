@@ -150,7 +150,7 @@ class PushNotificationDetailsController < ApplicationController
     user_pn_data = PushNotificationDetail.find_by_userid(params[:userid])
     message_to_send = params[:message_to_send]
     pn_sending_type = params[:pn_sending_type]
-    if(true) #if(pn_sending_type == 1 && user_pn_data.notify_when_comment == 1) #send the notification
+    if(pn_sending_type == 1 && user_pn_data.notify_when_comment == 1) #send the notification
       @return_message = 'send notification when user gets comments'
       notification = {
         #:schedule_for => 1.hour.from_now,
@@ -159,7 +159,7 @@ class PushNotificationDetailsController < ApplicationController
       }
       Urbanairship.push notification # => true
     elsif (pn_sending_type == 2 && user_pn_data.notify_when_friend_checkin == 1)
-      @return_message = 'send notification when user gets comments'
+      @return_message = 'send notification when friends check in'
       notification = {
         #:schedule_for => 1.hour.from_now,
         :device_tokens => [user_pn_data.pn_device_token],
