@@ -1,0 +1,25 @@
+<h1>Listing chatroom_managers</h1>
+
+<table>
+  <tr>
+    <th>Chatroom</th>
+    <th>Number users</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chatroom_managers.each do |chatroom_manager| %>
+  <tr>
+    <td><%= chatroom_manager.chatroom_id %></td>
+    <td><%= chatroom_manager.number_users %></td>
+    <td><%= link_to 'Show', chatroom_manager %></td>
+    <td><%= link_to 'Edit', edit_chatroom_manager_path(chatroom_manager) %></td>
+    <td><%= link_to 'Destroy', chatroom_manager, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chatroom manager', new_chatroom_manager_path %>

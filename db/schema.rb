@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708190644) do
+ActiveRecord::Schema.define(:version => 20120809114747) do
+
+  create_table "chatroom_managers", :force => true do |t|
+    t.string   "chatroom_id"
+    t.integer  "number_users", :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
 
   create_table "push_notification_details", :force => true do |t|
     t.string   "userid"

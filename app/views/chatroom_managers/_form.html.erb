@@ -1,0 +1,25 @@
+<%= form_for(@chatroom_manager) do |f| %>
+  <% if @chatroom_manager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chatroom_manager.errors.count, "error") %> prohibited this chatroom_manager from being saved:</h2>
+
+      <ul>
+      <% @chatroom_manager.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chatroom_id %><br />
+    <%= f.text_field :chatroom_id %>
+  </div>
+  <div class="field">
+    <%= f.label :number_users %><br />
+    <%= f.number_field :number_users %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

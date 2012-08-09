@@ -1,4 +1,6 @@
 ChatterboxPushNotificationEngine::Application.routes.draw do
+  resources :chatroom_managers
+
   resources :push_notification_details
 
   # The priority is based upon order of creation:
